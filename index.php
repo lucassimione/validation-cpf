@@ -25,5 +25,18 @@ function compararValores($cpf, $posicaoCaractere, $resultado)
 
 function validarCpf($cpf)
 {
+    $somaPrimeiroDigito = calcularDecrementando($cpf, 10);
+    $calculoPrimeiroDigito = obterRestoDivisao($somaPrimeiroDigito);
     
+
+    if(compararValores($cpf,9, $calculoPrimeiroDigito)){
+        $somaSegundoDigito = calcularDecrementando($cpf, 11);
+        $calculoSegundoDigito = obterRestoDivisao($somaSegundoDigito);
+
+        echo compararValores($cpf, 10, $calculoSegundoDigito) ? 'CPF válido!' : 'CPF inválido!';
+    } else {
+        echo 'CPF inválido';
+    }
 }
+
+
