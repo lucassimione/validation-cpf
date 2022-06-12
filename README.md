@@ -1,32 +1,27 @@
 <h1 align="center"> Validação de CPF utilizando PHP </h1>
-
-
-
-
-
 <div>
  <ul>
   <li> 
    <h1> Entenda o cálculo </h1>
    <p align="justify"> O CPF é formado por 11 dígitos numéricos que seguem a máscara "###.###.###-##", a verificação do CPF acontece utilizando os 9 primeiros dígitos e, com um cálculo simples, verificando se o resultado corresponde aos dois últimos dígitos (depois do sinal "-"). Vamos usar como exemplo, um CPF fictício "529.982.247-25". </p>
-   <p>Primeiramente multiplica-se os 9 primeiros dígitos pela sequência decrescente de números de 10 à 2 e soma os resultados. Assim:</p>
+   <ul>
+    <li>
+     <h2> Validação do primeiro dígito </h2>
+     <p>Primeiramente multiplica-se os 9 primeiros dígitos pela sequência decrescente de números de 10 à 2 e soma os resultados. Assim:</p>
    <p align="center">5 * <b>10</b> + 2 * <b>9</b> + 9 * <b>8</b> + 9 * <b>7</b> + 8 * <b>6</b> + 2 * <b>5</b> + 2 * <b>4</b> + 4 * <b>3</b> + 7 * <b>2</b> </p>
+   <p>O resultado do nosso exemplo é: 295</p>
+   <p>O próximo passo da verificação também é simples, basta multiplicarmos esse resultado por 10 e dividirmos por 11.</p>
+   <p align="center"> 295 * 10 / 11 </p>
+    </li>
+   </ul>
   </li>
  </ul>
 </div>
 
-<h1> Entenda o cálculo <h1>
-
-<p> </p>
-
-<h1 aling="center"> Validação do primeiro dígito <h1>
-<p>
 
 
-O resultado do nosso exemplo é:
-295
-O próximo passo da verificação também é simples, basta multiplicarmos esse resultado por 10 e dividirmos por 11.
-295 * 10 / 11
+
+
 O resultado que nos interessa na verdade é o RESTO da divisão. Se ele for igual ao primeiro dígito verificador (primeiro dígito depois do '-'), a primeira parte da validação está correta.
 Observação Importante: Se o resto da divisão for igual a 10, nós o consideramos como 0.
 Vamos conferir o primeiro dígito verificador do nosso exemplo:
